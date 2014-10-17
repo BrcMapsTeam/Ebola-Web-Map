@@ -1,0 +1,63 @@
+html {
+    height: 100%;
+}
+body{
+    margin: 0;
+    height: 100%;
+}
+
+.fill {
+    height: 100%;
+    min-height: 100%;
+}
+
+.h3 {
+    margin-left:-15px;
+    margin-top:10px;
+}
+
+#map{
+    margin-left: auto;
+    margin-right:auto; 
+    width: 95%;
+}
+
+#logo {
+    position: absolute;
+    right: 25px;
+    top: 5px;
+    height: 50px;
+    width: 250px;
+    background-image: url('../images/Logo-Shelter-Cluster-Philippines-400.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#header {
+    width: 95%;
+    margin-left: auto;
+    margin-right:auto; 
+}
+
+#header_desc {
+    font-size: 0.75em;
+    margin-top:10px;
+}
+
+
+.infolegend {
+    line-height: 18px;
+    color: #555;
+    background-color:#ffffff;
+    padding:10px;
+}
+.infolegend i {
+    width: 18px;
+    height: 18px;
+    float: left;
+    margin-right: 8px;
+    opacity: 0.7;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #000000;
+}
