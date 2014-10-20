@@ -53,3 +53,12 @@ var totalCasesStyle = function(feature){
             return {"color": "none","opacity":1};
         }
 };
+
+var medicalCentresStyle = function(){
+    return   {radius: 5,
+                fillColor: "#A3C990",
+                color: "#000",
+                weight: 1,
+                opacity: 1,
+                fillOpacity: 1};
+};

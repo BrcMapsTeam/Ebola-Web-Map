@@ -15,9 +15,19 @@ totalCasesLegendContent = function(){
     }
     return html;
 };
+
 totalDeathsLegendContent = function(){
     var labels = ["0","1-49","50-99","100-499","500+"];
     var html = "<p>Total Deaths</p>";
+    for(i=0;i<5;i++){
+        html = html +'<p><i style="background-color:' + color[i]+'"></i> '+labels[i]+'</p>';
+    }
+    return html;
+};
+
+medicalCentresLegendContent = function(){
+    var labels = ["ETUs"];
+    var html = "<p>Medical Centres</p>";
     for(i=0;i<5;i++){
         html = html +'<p><i style="background-color:' + color[i]+'"></i> '+labels[i]+'</p>';
     }

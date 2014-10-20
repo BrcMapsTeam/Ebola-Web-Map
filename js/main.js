@@ -30,6 +30,13 @@ function init(){
             layer.bindPopup("Total Deaths: "+totalDeaths[feature.properties.PCODE_REF]);
         }
     });    
+
+    var medicalCentresLayer = L.geoJson(medicalCentres, {
+        pointToLayer: function (feature, latlng) {
+            return L.circleMarker(latlng,medicalCentresStyle());
+        }
+    });
+    
     
     var map = L.map('map', {
         center: [8,-11],
@@ -43,7 +50,8 @@ function init(){
     }, {
         'New Cases in last 4 Weeks':newCasesLayer,
         'Total Cases':totalCasesLayer,
-        'Total Deaths':totalDeathsLayer
+        'Total Deaths':totalDeathsLayer,
+        'Medical Centres': medicalCentresLayer
     }).addTo(map);
     
     var newCasesLegend = L.control({position: 'bottomleft'});
