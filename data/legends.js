@@ -1,6 +1,6 @@
 newCasesLegendContent = function(){
     var labels = ["0","1-24","25-49","50-199","200+"];
-    var html = "<p>New Cases in the last 4 weeks</p>";
+    var html = "<p>New Cases in the last 16 days</p>";
     for(i=0;i<5;i++){
         html = html +'<p><i style="background-color:' + color[i]+'"></i> '+labels[i]+'</p>';
     }
@@ -27,7 +27,7 @@ totalDeathsLegendContent = function(){
 
 newCasesPerAreaLegendContent = function(){
     var labels = ["0","1-9","10-49","50-249","250+"];
-    var html = "<p>New Cases in the last 4 weeks Per 1000 sq. km</p>";
+    var html = "<p>New Cases in the last 16 days Per 1000 sq. km</p>";
     for(i=0;i<5;i++){
         html = html +'<p><i style="background-color:' + color[i]+'"></i> '+labels[i]+'</p>';
     }
@@ -54,7 +54,7 @@ totalDeathsPerAreaLegendContent = function(){
 
 newCasesPerPopLegendContent = function(){
     var labels = ["0","0.1-9.9","10-24.9","25-49.9","50+"];
-    var html = "<p>New Cases in the last 4 weeks Per 100,000 people</p>";
+    var html = "<p>New Cases in the last 16 days Per 100,000 people</p>";
     for(i=0;i<5;i++){
         html = html +'<p><i style="background-color:' + color[i]+'"></i> '+labels[i]+'</p>';
     }
