@@ -82,11 +82,10 @@ function init(){
         }        
     });
     
-    
     var map = L.map('map', {
         center: [8,-11],
         zoom: 6,
-        layers: [base_hotosm]
+        layers: [base_hotosm,totalCasesLayer,medicalCentresLayer]
     });
 
     L.control.layers({
@@ -103,7 +102,7 @@ function init(){
         'Total Cases per 100,000 people':totalCasesPerPopLayer,
         'Total Deaths per 100,000 people':totalDeathsPerPopLayer,        
         'Ebola Treatment Centres': medicalCentresLayer
-    }).addTo(map);
+    }).addTo(map);   
     
     var newCasesLegend = L.control({position: 'bottomleft'});
     var totalDeathsLegend = L.control({position: 'bottomleft'});
@@ -242,7 +241,10 @@ function init(){
         if(eventLayer.name=="Ebola Treatment Centres"){
             this.removeControl(medicalCentresLegend);
         };             
-    });    
+    });
+    
+    totalCasesLegend.addTo(map);
+    medicalCentresLegend.addTo(map);
     
     return map;    
 }
