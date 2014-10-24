@@ -13,7 +13,7 @@ function init(){
     var newCasesLayer = L.geoJson(regions,{
         style: newCasesStyle,
         onEachFeature: function (feature, layer) {
-            layer.bindPopup("<b>" + feature.properties.NAME_REF + " ("+feature.properties.PCODE_REF+")</b><br />New Cases in the last 4 weeks: "+newCases[feature.properties.PCODE_REF]);
+            layer.bindPopup("<b>" + feature.properties.NAME_REF + " ("+feature.properties.PCODE_REF+")</b><br />New Cases in the last 16 days: "+newCases[feature.properties.PCODE_REF]);
         }
     });
     
@@ -34,7 +34,7 @@ function init(){
     var newCasesPerAreaLayer = L.geoJson(regions,{
         style: newCasesPerAreaStyle,
         onEachFeature: function (feature, layer) {
-            layer.bindPopup("<b>" + feature.properties.NAME_REF + " ("+feature.properties.PCODE_REF+")</b><br />New Cases in the last 4 weeks Per 1000km: "+newCasesPerArea[feature.properties.PCODE_REF]);
+            layer.bindPopup("<b>" + feature.properties.NAME_REF + " ("+feature.properties.PCODE_REF+")</b><br />New Cases in the last 16 days Per 1000km: "+newCasesPerArea[feature.properties.PCODE_REF]);
         }
     });
     
@@ -55,7 +55,7 @@ function init(){
     var newCasesPerPopLayer = L.geoJson(regions,{
         style: newCasesPerPopStyle,
         onEachFeature: function (feature, layer) {
-            layer.bindPopup("<b>" + feature.properties.NAME_REF + " ("+feature.properties.PCODE_REF+")</b><br />New Cases in the last 4 weeks Per 100,000 People: "+newCasesPerPop[feature.properties.PCODE_REF]);
+            layer.bindPopup("<b>" + feature.properties.NAME_REF + " ("+feature.properties.PCODE_REF+")</b><br />New Cases in the last 16 days Per 100,000 People: "+newCasesPerPop[feature.properties.PCODE_REF]);
         }
     });
     
@@ -93,13 +93,13 @@ function init(){
         'HOT OSM':base_hotosm,
         'OSM':base_osm
     }, {
-        'New Cases in last 4 Weeks':newCasesLayer,
+        'New Cases in last 16 days':newCasesLayer,
         'Total Cases':totalCasesLayer,
         'Total Deaths':totalDeathsLayer,
-        'New Cases in last 4 Weeks per 1000 Sq. km':newCasesPerAreaLayer,
+        'New Cases in last 16 days per 1000 Sq. km':newCasesPerAreaLayer,
         'Total Cases per 1000 Sq. km':totalCasesPerAreaLayer,
         'Total Deaths per 1000 Sq. km':totalDeathsPerAreaLayer,
-        'New Cases in last 4 Weeks per 100,000 people':newCasesPerPopLayer,
+        'New Cases in last 16 days per 100,000 people':newCasesPerPopLayer,
         'Total Cases per 100,000 people':totalCasesPerPopLayer,
         'Total Deaths per 100,000 people':totalDeathsPerPopLayer,        
         'Ebola Treatment Centres': medicalCentresLayer
@@ -179,7 +179,7 @@ function init(){
     };         
     
     map.on('overlayadd', function (eventLayer) {
-        if(eventLayer.name=="New Cases in last 4 Weeks"){
+        if(eventLayer.name=="New Cases in last 16 days"){
             newCasesLegend.addTo(this);
         };
         if(eventLayer.name=="Total Cases"){
@@ -188,7 +188,7 @@ function init(){
         if(eventLayer.name=="Total Deaths"){
             totalDeathsLegend.addTo(this);
         };
-        if(eventLayer.name=="New Cases in last 4 Weeks per 1000 Sq. km"){
+        if(eventLayer.name=="New Cases in last 16 days per 1000 Sq. km"){
             newCasesPerAreaLegend.addTo(this);
         };
         if(eventLayer.name=="Total Cases per 1000 Sq. km"){
@@ -197,7 +197,7 @@ function init(){
         if(eventLayer.name=="Total Deaths per 1000 Sq. km"){
             totalDeathsPerAreaLegend.addTo(this);
         };
-        if(eventLayer.name=="New Cases in last 4 Weeks per 100,000 people"){
+        if(eventLayer.name=="New Cases in last 16 days per 100,000 people"){
             newCasesPerPopLegend.addTo(this);
         };
         if(eventLayer.name=="Total Cases per 100,000 people"){
@@ -212,7 +212,7 @@ function init(){
     });
     
     map.on('overlayremove', function (eventLayer) {
-        if(eventLayer.name=="New Cases in last 4 Weeks"){
+        if(eventLayer.name=="New Cases in last 16 days"){
             this.removeControl(newCasesLegend);
         };
         if(eventLayer.name=="Total Cases"){
@@ -221,7 +221,7 @@ function init(){
         if(eventLayer.name=="Total Deaths"){
             this.removeControl(totalDeathsLegend);
         };
-        if(eventLayer.name=="New Cases in last 4 Weeks per 1000 Sq. km"){
+        if(eventLayer.name=="New Cases in last 16 days per 1000 Sq. km"){
             this.removeControl(newCasesPerAreaLegend);
         };
         if(eventLayer.name=="Total Cases per 1000 Sq. km"){
@@ -230,7 +230,7 @@ function init(){
         if(eventLayer.name=="Total Deaths per 1000 Sq. km"){
             this.removeControl(totalDeathsPerAreaLegend);
         };
-        if(eventLayer.name=="New Cases in last 4 Weeks per 100,000 people"){
+        if(eventLayer.name=="New Cases in last 16 days per 100,000 people"){
             this.removeControl(newCasesPerPopLegend);
         };
         if(eventLayer.name=="Total Cases per 100,000 people"){
