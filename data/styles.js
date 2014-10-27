@@ -63,6 +63,15 @@ var medicalCentresStyle = function(){
                 fillOpacity: 1};
 };
 
+var SBTFMedicalCentresStyle = function(){
+    return   {radius: 5,
+                fillColor: "#91a7ff",
+                color: "#000",
+                weight: 1,
+                opacity: 1,
+                fillOpacity: 1};
+};
+
 var newCasesPerAreaStyle = function(feature){
         if(feature.properties.PCODE_REF in newCasesPerArea) {
             if(newCasesPerArea[feature.properties.PCODE_REF]<1){

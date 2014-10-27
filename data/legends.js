@@ -84,3 +84,9 @@ medicalCentresLegendContent = function(){
     html = html +'<p><i style="background-color:#A3C990"></i>ETC</p>';
     return html;
 };
+
+SBTFMedicalCentresLegendContent = function(){
+    var html = "<p>Medical Centres</p>";
+    html = html +'<p><i style="background-color:#91a7ff"></i>Medical Centre</p>';
+    return html;
+};

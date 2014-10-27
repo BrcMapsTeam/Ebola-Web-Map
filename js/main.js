@@ -82,6 +82,15 @@ function init(){
         }        
     });
     
+    var SBTFMedicalCentresLayer = L.geoJson(SBTFMedicalCentres, {
+        pointToLayer: function (feature, latlng) {
+            return L.circleMarker(latlng,SBTFMedicalCentresStyle());
+        },
+        onEachFeature: function (feature, layer) {
+            layer.bindPopup("Centre ID: "+feature.properties["Centre ID"]+"<br />Centre Name: "+feature.properties["Center"]+"<br />Type: "+feature.properties["Type"]+"<br />Activity: "+feature.properties["Activity"]+"<br />Org: "+feature.properties["Org"]);
+        }        
+    });    
+    
     var map = L.map('map', {
         center: [8,-11],
         zoom: 6,
@@ -101,7 +110,8 @@ function init(){
         'New Cases in last 16 days per 100,000 people':newCasesPerPopLayer,
         'Total Cases per 100,000 people':totalCasesPerPopLayer,
         'Total Deaths per 100,000 people':totalDeathsPerPopLayer,        
-        'Ebola Treatment Centres': medicalCentresLayer
+        'Ebola Treatment Centres': medicalCentresLayer,
+        'SBTF Medical Centres': SBTFMedicalCentresLayer
     }).addTo(map);   
     
     var newCasesLegend = L.control({position: 'bottomleft'});
@@ -114,6 +124,7 @@ function init(){
     var totalDeathsPerPopLegend = L.control({position: 'bottomleft'});
     var totalCasesPerPopLegend = L.control({position: 'bottomleft'});
     var medicalCentresLegend = L.control({position: 'bottomleft'});
+    var SBTFMedicalCentresLegend = L.control({position: 'bottomleft'});
     
     newCasesLegend.onAdd = function (map) {
         var div = L.DomUtil.create('div', 'infolegend');
@@ -175,6 +186,12 @@ function init(){
         var div = L.DomUtil.create('div', 'infolegend');
             div.innerHTML +=medicalCentresLegendContent();
         return div;
+    };
+    
+    SBTFMedicalCentresLegend.onAdd = function (map) {
+        var div = L.DomUtil.create('div', 'infolegend');
+            div.innerHTML +=SBTFMedicalCentresLegendContent();
+        return div;
     };         
     
     map.on('overlayadd', function (eventLayer) {
@@ -207,7 +224,10 @@ function init(){
         };
         if(eventLayer.name=="Ebola Treatment Centres"){
             medicalCentresLegend.addTo(this);
-        };        
+        };
+        if(eventLayer.name=="SBTF Medical Centres"){
+            SBTFMedicalCentresLegend.addTo(this);
+        };           
     });
     
     map.on('overlayremove', function (eventLayer) {
@@ -240,7 +260,10 @@ function init(){
         };
         if(eventLayer.name=="Ebola Treatment Centres"){
             this.removeControl(medicalCentresLegend);
-        };             
+        };
+        if(eventLayer.name=="SBTF Medical Centres"){
+            this.removeControl(SBTFMedicalCentresLegend);
+        };          
     });
     
     totalCasesLegend.addTo(map);
