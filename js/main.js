@@ -75,7 +75,7 @@ function init(){
 
     var medicalCentresLayer = L.geoJson(medicalCentres, {
         pointToLayer: function (feature, latlng) {
-            return L.circleMarker(latlng,medicalCentresStyle());
+            return L.circleMarker(latlng,medicalCentresStyle(feature));
         },
         onEachFeature: function (feature, layer) {
             layer.bindPopup("Centre Name: "+feature.properties["Centre Name"]+"<br />Organisation: "+feature.properties["Primary Organisation"]);
