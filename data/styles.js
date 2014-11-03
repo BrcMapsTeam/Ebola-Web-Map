@@ -54,13 +54,23 @@ var totalCasesStyle = function(feature){
         }
 };
 
-var medicalCentresStyle = function(){
-    return   {radius: 5,
+var medicalCentresStyle = function(feature){
+    if(feature.properties.Status == "Functional"){
+        return   {radius: 5,
                 fillColor: "#A3C990",
                 color: "#000",
                 weight: 1,
                 opacity: 1,
                 fillOpacity: 1};
+            }
+    else {
+        return   {radius: 5,
+                fillColor: "#738ffe",
+                color: "#000",
+                weight: 1,
+                opacity: 1,
+                fillOpacity: 1};
+            }
 };
 
 var SBTFMedicalCentresStyle = function(){
