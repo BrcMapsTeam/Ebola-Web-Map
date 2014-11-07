@@ -75,10 +75,10 @@ function init(){
 
     var medicalCentresLayer = L.geoJson(medicalCentres, {
         pointToLayer: function (feature, latlng) {
-            return L.circleMarker(latlng,medicalCentresStyle());
+            return L.circleMarker(latlng,medicalCentresStyle(feature));
         },
         onEachFeature: function (feature, layer) {
-            layer.bindPopup("Centre Name: "+feature.properties["Centre Name"]+"<br />Organisation: "+feature.properties["Primary Organisation"]);
+            layer.bindPopup("Centre Name: "+feature.properties["Centre Name"]+"<br />Type: "+feature.properties["Type1"]+"<br />Status: "+feature.properties["Status"]+"<br />Organisation: "+feature.properties["Primary Organisation"]);
         }        
     });
     
@@ -110,7 +110,7 @@ function init(){
         'New Cases in the last 4 weeks per 100,000 people':newCasesPerPopLayer,
         'Total Cases per 100,000 people':totalCasesPerPopLayer,
         'Total Deaths per 100,000 people':totalDeathsPerPopLayer,        
-        'Ebola Treatment Centres': medicalCentresLayer,
+        'Ebola Medical Centres': medicalCentresLayer,
         'SBTF Medical Centres': SBTFMedicalCentresLayer
     }).addTo(map);   
     
@@ -222,7 +222,7 @@ function init(){
         if(eventLayer.name=="Total Deaths per 100,000 people"){
             totalDeathsPerPopLegend.addTo(this);
         };
-        if(eventLayer.name=="Ebola Treatment Centres"){
+        if(eventLayer.name=="Ebola Medical Centres"){
             medicalCentresLegend.addTo(this);
         };
         if(eventLayer.name=="SBTF Medical Centres"){
@@ -258,7 +258,7 @@ function init(){
         if(eventLayer.name=="Total Deaths per 100,000 people"){
             this.removeControl(totalDeathsPerPopLegend);
         };
-        if(eventLayer.name=="Ebola Treatment Centres"){
+        if(eventLayer.name=="Ebola Medical Centres"){
             this.removeControl(medicalCentresLegend);
         };
         if(eventLayer.name=="SBTF Medical Centres"){
