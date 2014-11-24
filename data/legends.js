@@ -82,7 +82,7 @@ totalDeathsPerPopLegendContent = function(){
 medicalCentresLegendContent = function(){
     var html = "<p>Ebola Medical Centres</p>";
     html = html +'<p><i style="background-color:#A3C990"></i>Functional</p>';
-    html = html +'<p><i style="background-color:#738ffe"></i>Pending</p>';
+    html = html +'<p><i style="background-color:#738ffe"></i>Planned or under construction</p>';
     return html;
 };
 

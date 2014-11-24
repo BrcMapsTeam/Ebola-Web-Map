@@ -78,7 +78,7 @@ function init(){
             return L.circleMarker(latlng,medicalCentresStyle(feature));
         },
         onEachFeature: function (feature, layer) {
-            layer.bindPopup("Centre Name: "+feature.properties["Centre Name"]+"<br />Type: "+feature.properties["Type1"]+"<br />Status: "+feature.properties["Status"]+"<br />Organisation: "+feature.properties["Primary Organisation"]);
+            layer.bindPopup("Centre Name: "+feature.properties["UNIT_NAME"]+"<br />Status: "+feature.properties["STATUS"]+"<br />Organisation: "+feature.properties["SUPPORTING"]);
         }        
     });
     
