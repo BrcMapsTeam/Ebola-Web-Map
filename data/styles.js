@@ -55,7 +55,7 @@ var totalCasesStyle = function(feature){
 };
 
 var medicalCentresStyle = function(feature){
-    if(feature.properties.STATUS == "Open"){
+    if(feature.properties.Status == "Open"){
         return   {radius: 5,
                 fillColor: "#A3C990",
                 color: "#000",
