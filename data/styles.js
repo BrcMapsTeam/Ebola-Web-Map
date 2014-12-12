@@ -1,4 +1,4 @@
-var color = ["none","#ffe082","#ffca28","#ffb300","#ff8f00"];
+var color = ["none","#ffe082","#ffbd13","#ff8053","#ff493d"];
 
 var newCasesStyle = function(feature){
         if(feature.properties.PCODE_REF in newCases) {
