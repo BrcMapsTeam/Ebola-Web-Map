@@ -266,7 +266,7 @@ function init(){
         };          
     });
     
-    totalCasesLegend.addTo(map);
+    newCasesLegend.addTo(map);
     medicalCentresLegend.addTo(map);
     
     return map;    
