@@ -94,7 +94,7 @@ function init(){
     var map = L.map('map', {
         center: [8,-11],
         zoom: 6,
-        layers: [base_hotosm,totalCasesLayer,medicalCentresLayer]
+        layers: [base_hotosm,newCasesLayer,medicalCentresLayer]
     });
 
     L.control.layers({
