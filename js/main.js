@@ -13,63 +13,63 @@ function init(){
     var newCasesLayer = L.geoJson(regions,{
         style: newCasesStyle,
         onEachFeature: function (feature, layer) {
-            layer.bindPopup("<b>" + feature.properties.NAME_REF + " ("+feature.properties.PCODE_REF+")</b><br />New Cases in the last 4 weeks: "+newCases[feature.properties.PCODE_REF]);
+            layer.bindPopup("<b>" + feature.properties.NAMEUSE + " ("+feature.properties.PCODEUSE+")</b><br />New Cases in the last 4 weeks: "+newCases[feature.properties.PCODEUSE]);
         }
     });
     
     var totalCasesLayer = L.geoJson(regions,{
         style: totalCasesStyle,
         onEachFeature: function (feature, layer) {
-            layer.bindPopup("<b>" + feature.properties.NAME_REF + " ("+feature.properties.PCODE_REF+")</b><br />Total Cases: "+totalCases[feature.properties.PCODE_REF]);
+            layer.bindPopup("<b>" + feature.properties.NAMEUSE + " ("+feature.properties.PCODEUSE+")</b><br />Total Cases: "+totalCases[feature.properties.PCODEUSE]);
         }
     });
     
     var totalDeathsLayer = L.geoJson(regions,{
         style: totalDeathsStyle,
         onEachFeature: function (feature, layer) {
-            layer.bindPopup("<b>" + feature.properties.NAME_REF + " ("+feature.properties.PCODE_REF+")</b><br />Total Deaths: "+totalDeaths[feature.properties.PCODE_REF]);
+            layer.bindPopup("<b>" + feature.properties.NAMEUSE + " ("+feature.properties.PCODEUSE+")</b><br />Total Deaths: "+totalDeaths[feature.properties.PCODEUSE]);
         }
     });
     
     var newCasesPerAreaLayer = L.geoJson(regions,{
         style: newCasesPerAreaStyle,
         onEachFeature: function (feature, layer) {
-            layer.bindPopup("<b>" + feature.properties.NAME_REF + " ("+feature.properties.PCODE_REF+")</b><br />New Cases in the last 4 weeks Per 1000km: "+newCasesPerArea[feature.properties.PCODE_REF]);
+            layer.bindPopup("<b>" + feature.properties.NAMEUSE + " ("+feature.properties.PCODEUSE+")</b><br />New Cases in the last 4 weeks Per 1000km: "+newCasesPerArea[feature.properties.PCODEUSE]);
         }
     });
     
     var totalCasesPerAreaLayer = L.geoJson(regions,{
         style: totalCasesPerAreaStyle,
         onEachFeature: function (feature, layer) {
-            layer.bindPopup("<b>" + feature.properties.NAME_REF + " ("+feature.properties.PCODE_REF+")</b><br />Total Cases Per 1000km: "+totalCasesPerArea[feature.properties.PCODE_REF]);
+            layer.bindPopup("<b>" + feature.properties.NAMEUSE + " ("+feature.properties.PCODEUSE+")</b><br />Total Cases Per 1000km: "+totalCasesPerArea[feature.properties.PCODEUSE]);
         }
     });
     
     var totalDeathsPerAreaLayer = L.geoJson(regions,{
         style: totalDeathsPerAreaStyle,
         onEachFeature: function (feature, layer) {
-            layer.bindPopup("<b>" + feature.properties.NAME_REF + " ("+feature.properties.PCODE_REF+")</b><br />Total Deaths Per 1000km: "+totalDeathsPerArea[feature.properties.PCODE_REF]);
+            layer.bindPopup("<b>" + feature.properties.NAMEUSE + " ("+feature.properties.PCODEUSE+")</b><br />Total Deaths Per 1000km: "+totalDeathsPerArea[feature.properties.PCODEUSE]);
         }
     });      
 
     var newCasesPerPopLayer = L.geoJson(regions,{
         style: newCasesPerPopStyle,
         onEachFeature: function (feature, layer) {
-            layer.bindPopup("<b>" + feature.properties.NAME_REF + " ("+feature.properties.PCODE_REF+")</b><br />New Cases in the last 4 weeks Per 100,000 People: "+newCasesPerPop[feature.properties.PCODE_REF]);
+            layer.bindPopup("<b>" + feature.properties.NAMEUSE + " ("+feature.properties.PCODEUSE+")</b><br />New Cases in the last 4 weeks Per 100,000 People: "+newCasesPerPop[feature.properties.PCODEUSE]);
         }
     });
     
     var totalCasesPerPopLayer = L.geoJson(regions,{
         style: totalCasesPerPopStyle,
         onEachFeature: function (feature, layer) {
-            layer.bindPopup("<b>" + feature.properties.NAME_REF + " ("+feature.properties.PCODE_REF+")</b><br />Total Cases Per 100,000 People: "+totalCasesPerPop[feature.properties.PCODE_REF]);
+            layer.bindPopup("<b>" + feature.properties.NAMEUSE + " ("+feature.properties.PCODEUSE+")</b><br />Total Cases Per 100,000 People: "+totalCasesPerPop[feature.properties.PCODEUSE]);
         }
     });
     
     var totalDeathsPerPopLayer = L.geoJson(regions,{
         style: totalDeathsPerPopStyle,
         onEachFeature: function (feature, layer) {
-            layer.bindPopup("<b>" + feature.properties.NAME_REF + " ("+feature.properties.PCODE_REF+")</b><br />Total Deaths Per 100,000 People: "+totalDeathsPerPop[feature.properties.PCODE_REF]);
+            layer.bindPopup("<b>" + feature.properties.NAMEUSE + " ("+feature.properties.PCODEUSE+")</b><br />Total Deaths Per 100,000 People: "+totalDeathsPerPop[feature.properties.PCODEUSE]);
         }
     });
 
