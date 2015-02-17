@@ -1,14 +1,14 @@
 var color = ["none","#ffe082","#ffbd13","#ff8053","#ff493d"];
 
 var newCasesStyle = function(feature){
-        if(feature.properties.PCODE_REF in newCases) {
-            if(newCases[feature.properties.PCODE_REF]<1){
+        if(feature.properties.PCODEUSE in newCases) {
+            if(newCases[feature.properties.PCODEUSE]<1){
                 return {color: color[0],fillColor: color[0],fillOpacity:0.6,opacity:0.7,weight:2};
-            } else if(newCases[feature.properties.PCODE_REF]<25){
+            } else if(newCases[feature.properties.PCODEUSE]<25){
                 return {color: color[1],fillColor: color[1],fillOpacity:0.6,opacity:0.7,weight:2};
-            } else if(newCases[feature.properties.PCODE_REF]<50){
+            } else if(newCases[feature.properties.PCODEUSE]<50){
                 return {color: color[2],fillColor: color[2],fillOpacity:0.6,opacity:0.7,weight:2};
-            } else if(newCases[feature.properties.PCODE_REF]<200){
+            } else if(newCases[feature.properties.PCODEUSE]<200){
                 return {color: color[3],fillColor: color[3],fillOpacity:0.6,opacity:0.7,weight:2};
             } 
             return {color: color[4],fillColor: color[4],fillOpacity:0.6,opacity:0.7,weight:2};
@@ -19,14 +19,14 @@ var newCasesStyle = function(feature){
 };
 
 var totalDeathsStyle = function(feature){
-        if(feature.properties.PCODE_REF in totalDeaths) {
-            if(totalDeaths[feature.properties.PCODE_REF]<1){
+        if(feature.properties.PCODEUSE in totalDeaths) {
+            if(totalDeaths[feature.properties.PCODEUSE]<1){
                 return {color: color[0],fillColor: color[0],fillOpacity:0.6,opacity:0.7,weight:2};
-            } else if(totalDeaths[feature.properties.PCODE_REF]<50){
+            } else if(totalDeaths[feature.properties.PCODEUSE]<50){
                 return {color: color[1],fillColor: color[1],fillOpacity:0.6,opacity:0.7,weight:2};
-            } else if(totalDeaths[feature.properties.PCODE_REF]<100){
+            } else if(totalDeaths[feature.properties.PCODEUSE]<100){
                 return {color: color[2],fillColor: color[2],fillOpacity:0.6,opacity:0.7,weight:2};
-            } else if(totalDeaths[feature.properties.PCODE_REF]<500){
+            } else if(totalDeaths[feature.properties.PCODEUSE]<500){
                 return {color: color[3],fillColor: color[3],fillOpacity:0.6,opacity:0.7,weight:2};
             } 
             return {color: color[4],fillColor: color[4],fillOpacity:0.6,opacity:0.7,weight:2};
@@ -37,14 +37,14 @@ var totalDeathsStyle = function(feature){
 };
 
 var totalCasesStyle = function(feature){
-        if(feature.properties.PCODE_REF in totalCases) {
-            if(totalCases[feature.properties.PCODE_REF]<1){
+        if(feature.properties.PCODEUSE in totalCases) {
+            if(totalCases[feature.properties.PCODEUSE]<1){
                 return {color: color[0],fillColor: color[0],fillOpacity:0.6,opacity:0.7,weight:2};
-            } else if(totalCases[feature.properties.PCODE_REF]<100){
+            } else if(totalCases[feature.properties.PCODEUSE]<100){
                 return {color: color[1],fillColor: color[1],fillOpacity:0.6,opacity:0.7,weight:2};
-            } else if(totalCases[feature.properties.PCODE_REF]<300){
+            } else if(totalCases[feature.properties.PCODEUSE]<300){
                 return {color: color[2],fillColor: color[2],fillOpacity:0.6,opacity:0.7,weight:2};
-            } else if(totalCases[feature.properties.PCODE_REF]<800){
+            } else if(totalCases[feature.properties.PCODEUSE]<800){
                 return {color: color[3],fillColor: color[3],fillOpacity:0.6,opacity:0.7,weight:2};
             } 
             return {color: color[4],fillColor: color[4],fillOpacity:0.6,opacity:0.7,weight:2};
@@ -83,14 +83,14 @@ var SBTFMedicalCentresStyle = function(){
 };
 
 var newCasesPerAreaStyle = function(feature){
-        if(feature.properties.PCODE_REF in newCasesPerArea) {
-            if(newCasesPerArea[feature.properties.PCODE_REF]<1){
+        if(feature.properties.PCODEUSE in newCasesPerArea) {
+            if(newCasesPerArea[feature.properties.PCODEUSE]<1){
                 return {color: color[0],fillColor: color[0],fillOpacity:0.6,opacity:0.7,weight:2};
-            } else if(newCasesPerArea[feature.properties.PCODE_REF]<10){
+            } else if(newCasesPerArea[feature.properties.PCODEUSE]<10){
                 return {color: color[1],fillColor: color[1],fillOpacity:0.6,opacity:0.7,weight:2};
-            } else if(newCasesPerArea[feature.properties.PCODE_REF]<50){
+            } else if(newCasesPerArea[feature.properties.PCODEUSE]<50){
                 return {color: color[2],fillColor: color[2],fillOpacity:0.6,opacity:0.7,weight:2};
-            } else if(newCasesPerArea[feature.properties.PCODE_REF]<250){
+            } else if(newCasesPerArea[feature.properties.PCODEUSE]<250){
                 return {color: color[3],fillColor: color[3],fillOpacity:0.6,opacity:0.7,weight:2};
             } 
             return {color: color[4],fillColor: color[4],fillOpacity:0.6,opacity:0.7,weight:2};
@@ -101,14 +101,14 @@ var newCasesPerAreaStyle = function(feature){
 };
 
 var totalCasesPerAreaStyle = function(feature){
-        if(feature.properties.PCODE_REF in totalCasesPerArea) {
-            if(totalCasesPerArea[feature.properties.PCODE_REF]<1){
+        if(feature.properties.PCODEUSE in totalCasesPerArea) {
+            if(totalCasesPerArea[feature.properties.PCODEUSE]<1){
                 return {color: color[0],fillColor: color[0],fillOpacity:0.6,opacity:0.7,weight:2};
-            } else if(totalCasesPerArea[feature.properties.PCODE_REF]<50){
+            } else if(totalCasesPerArea[feature.properties.PCODEUSE]<50){
                 return {color: color[1],fillColor: color[1],fillOpacity:0.6,opacity:0.7,weight:2};
-            } else if(totalCasesPerArea[feature.properties.PCODE_REF]<100){
+            } else if(totalCasesPerArea[feature.properties.PCODEUSE]<100){
                 return {color: color[2],fillColor: color[2],fillOpacity:0.6,opacity:0.7,weight:2};
-            } else if(totalCasesPerArea[feature.properties.PCODE_REF]<500){
+            } else if(totalCasesPerArea[feature.properties.PCODEUSE]<500){
                 return {color: color[3],fillColor: color[3],fillOpacity:0.6,opacity:0.7,weight:2};
             } 
             return {color: color[4],fillColor: color[4],fillOpacity:0.6,opacity:0.7,weight:2};
@@ -119,14 +119,14 @@ var totalCasesPerAreaStyle = function(feature){
 };
 
 var totalDeathsPerAreaStyle = function(feature){
-        if(feature.properties.PCODE_REF in totalDeathsPerArea) {
-            if(totalDeathsPerArea[feature.properties.PCODE_REF]<1){
+        if(feature.properties.PCODEUSE in totalDeathsPerArea) {
+            if(totalDeathsPerArea[feature.properties.PCODEUSE]<1){
                 return {color: color[0],fillColor: color[0],fillOpacity:0.6,opacity:0.7,weight:2};
-            } else if(totalDeathsPerArea[feature.properties.PCODE_REF]<25){
+            } else if(totalDeathsPerArea[feature.properties.PCODEUSE]<25){
                 return {color: color[1],fillColor: color[1],fillOpacity:0.6,opacity:0.7,weight:2};
-            } else if(totalDeathsPerArea[feature.properties.PCODE_REF]<50){
+            } else if(totalDeathsPerArea[feature.properties.PCODEUSE]<50){
                 return {color: color[2],fillColor: color[2],fillOpacity:0.6,opacity:0.7,weight:2};
-            } else if(totalDeathsPerArea[feature.properties.PCODE_REF]<200){
+            } else if(totalDeathsPerArea[feature.properties.PCODEUSE]<200){
                 return {color: color[3],fillColor: color[3],fillOpacity:0.6,opacity:0.7,weight:2};
             } 
             return {color: color[4],fillColor: color[4],fillOpacity:0.6,opacity:0.7,weight:2};
@@ -137,14 +137,14 @@ var totalDeathsPerAreaStyle = function(feature){
 };
 
 var newCasesPerPopStyle = function(feature){
-        if(feature.properties.PCODE_REF in newCasesPerPop) {
-            if(newCasesPerPop[feature.properties.PCODE_REF]<0.1){
+        if(feature.properties.PCODEUSE in newCasesPerPop) {
+            if(newCasesPerPop[feature.properties.PCODEUSE]<0.1){
                 return {color: color[0],fillColor: color[0],fillOpacity:0.6,opacity:0.7,weight:2};
-            } else if(newCasesPerPop[feature.properties.PCODE_REF]<10){
+            } else if(newCasesPerPop[feature.properties.PCODEUSEF]<10){
                 return {color: color[1],fillColor: color[1],fillOpacity:0.6,opacity:0.7,weight:2};
-            } else if(newCasesPerPop[feature.properties.PCODE_REF]<25){
+            } else if(newCasesPerPop[feature.properties.PCODEUSE]<25){
                 return {color: color[2],fillColor: color[2],fillOpacity:0.6,opacity:0.7,weight:2};
-            } else if(newCasesPerPop[feature.properties.PCODE_REF]<50){
+            } else if(newCasesPerPop[feature.properties.PCODEUSE]<50){
                 return {color: color[3],fillColor: color[3],fillOpacity:0.6,opacity:0.7,weight:2};
             } 
             return {color: color[4],fillColor: color[4],fillOpacity:0.6,opacity:0.7,weight:2};
@@ -155,14 +155,14 @@ var newCasesPerPopStyle = function(feature){
 };
 
 var totalCasesPerPopStyle = function(feature){
-        if(feature.properties.PCODE_REF in totalCasesPerPop) {
-            if(totalCasesPerPop[feature.properties.PCODE_REF]<0.1){
+        if(feature.properties.PCODEUSE in totalCasesPerPop) {
+            if(totalCasesPerPop[feature.properties.PCODEUSE]<0.1){
                 return {color: color[0],fillColor: color[0],fillOpacity:0.6,opacity:0.7,weight:2};
-            } else if(totalCasesPerPop[feature.properties.PCODE_REF]<25){
+            } else if(totalCasesPerPop[feature.properties.PCODEUSE]<25){
                 return {color: color[1],fillColor: color[1],fillOpacity:0.6,opacity:0.7,weight:2};
-            } else if(totalCasesPerPop[feature.properties.PCODE_REF]<50){
+            } else if(totalCasesPerPop[feature.properties.PCODEUSE]<50){
                 return {color: color[2],fillColor: color[2],fillOpacity:0.6,opacity:0.7,weight:2};
-            } else if(totalCasesPerPop[feature.properties.PCODE_REF]<100){
+            } else if(totalCasesPerPop[feature.properties.PCODEUSE]<100){
                 return {color: color[3],fillColor: color[3],fillOpacity:0.6,opacity:0.7,weight:2};
             } 
             return {color: color[4],fillColor: color[4],fillOpacity:0.6,opacity:0.7,weight:2};
@@ -173,14 +173,14 @@ var totalCasesPerPopStyle = function(feature){
 };
 
 var totalDeathsPerPopStyle = function(feature){
-        if(feature.properties.PCODE_REF in totalDeathsPerPop) {
-            if(totalDeathsPerPop[feature.properties.PCODE_REF]<0.1){
+        if(feature.properties.PCODEUSE in totalDeathsPerPop) {
+            if(totalDeathsPerPop[feature.properties.PCODEUSE]<0.1){
                 return {color: color[0],fillColor: color[0],fillOpacity:0.6,opacity:0.7,weight:2};
-            } else if(totalDeathsPerPop[feature.properties.PCODE_REF]<20){
+            } else if(totalDeathsPerPop[feature.properties.PCODEUSE]<20){
                 return {color: color[1],fillColor: color[1],fillOpacity:0.6,opacity:0.7,weight:2};
-            } else if(totalDeathsPerPop[feature.properties.PCODE_REF]<40){
+            } else if(totalDeathsPerPop[feature.properties.PCODEUSE]<40){
                 return {color: color[2],fillColor: color[2],fillOpacity:0.6,opacity:0.7,weight:2};
-            } else if(totalDeathsPerPop[feature.properties.PCODE_REF]<80){
+            } else if(totalDeathsPerPop[feature.properties.PCODEUSE]<80){
                 return {color: color[3],fillColor: color[3],fillOpacity:0.6,opacity:0.7,weight:2};
             } 
             return {color: color[4],fillColor: color[4],fillOpacity:0.6,opacity:0.7,weight:2};
