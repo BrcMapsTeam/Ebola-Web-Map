@@ -30,6 +30,20 @@ function init(){
             layer.bindPopup("<b>" + feature.properties.NAMEUSE + " ("+feature.properties.PCODEUSE+")</b><br />Total Deaths: "+totalDeaths[feature.properties.PCODEUSE]);
         }
     });
+	
+	var newConfLayer = L.geoJson(regions,{
+        style: newConfStyle,
+        onEachFeature: function (feature, layer) {
+            layer.bindPopup("<b>" + feature.properties.NAMEUSE + " ("+feature.properties.PCODEUSE+")</b><br />New Confirmed Cases in the last 4 weeks: "+NewConfirms[feature.properties.PCODEUSE]);
+        }
+    });
+	
+	var cumConfLayer = L.geoJson(regions,{
+        style: cumConfStyle,
+        onEachFeature: function (feature, layer) {
+            layer.bindPopup("<b>" + feature.properties.NAMEUSE + " ("+feature.properties.PCODEUSE+")</b><br />Cumulative Confirmed Cases: "+CumConfirms[feature.properties.PCODEUSE]);
+        }
+    });
 
     var medicalCentresLayer = L.geoJson(medicalCentres, {
         pointToLayer: function (feature, latlng) {
@@ -62,6 +76,8 @@ function init(){
         'New Cases in the last 4 weeks':newCasesLayer,
         'Total Cases':totalCasesLayer,
         'Total Deaths':totalDeathsLayer, 
+		'New Confirmed Cases in the last 4 weeks':newConfLayer,
+		'Cumulative Confirmed Cases':cumConfLayer,
         'Ebola Medical Centres': medicalCentresLayer,
         'SBTF Medical Centres': SBTFMedicalCentresLayer
     }).addTo(map);   
@@ -69,6 +85,8 @@ function init(){
     var newCasesLegend = L.control({position: 'bottomleft'});
     var totalDeathsLegend = L.control({position: 'bottomleft'});
     var totalCasesLegend = L.control({position: 'bottomleft'});
+	var newConfLegend = L.control({position: 'bottomleft'});
+	var cumConfLegend = L.control({position: 'bottomleft'});
     var medicalCentresLegend = L.control({position: 'bottomleft'});
     var SBTFMedicalCentresLegend = L.control({position: 'bottomleft'});
     
@@ -91,6 +109,17 @@ function init(){
         return div;
     };
     
+	newConfLegend.onAdd = function (map) {
+		var div = L.DomUtil.create('div', 'infolegend');
+			div.innerHTML +=newConfLegendContent();
+		return div;
+	};
+	
+	cumConfLegend.onAdd = function (map) {
+		var div = L.DomUtil.create('div', 'infolegend');
+			div.innerHTML +=cumConfLegendContent();
+		return div;
+	};
     
     medicalCentresLegend.onAdd = function (map) {
         var div = L.DomUtil.create('div', 'infolegend');
@@ -114,23 +143,11 @@ function init(){
         if(eventLayer.name=="Total Deaths"){
             totalDeathsLegend.addTo(this);
         };
-        if(eventLayer.name=="New Cases in the last 4 weeks per 1000 Sq. km"){
-            newCasesPerAreaLegend.addTo(this);
+        if(eventLayer.name=="New Confirmed Cases in the last 4 weeks"){
+            newConfLegend.addTo(this);
         };
-        if(eventLayer.name=="Total Cases per 1000 Sq. km"){
-            totalCasesPerAreaLegend.addTo(this);
-        };
-        if(eventLayer.name=="Total Deaths per 1000 Sq. km"){
-            totalDeathsPerAreaLegend.addTo(this);
-        };
-        if(eventLayer.name=="New Cases in the last 4 weeks per 100,000 people"){
-            newCasesPerPopLegend.addTo(this);
-        };
-        if(eventLayer.name=="Total Cases per 100,000 people"){
-            totalCasesPerPopLegend.addTo(this);
-        };
-        if(eventLayer.name=="Total Deaths per 100,000 people"){
-            totalDeathsPerPopLegend.addTo(this);
+		if(eventLayer.name=="Cumulative Confirmed Cases"){
+            cumConfLegend.addTo(this);
         };
         if(eventLayer.name=="Ebola Medical Centres"){
             medicalCentresLegend.addTo(this);
@@ -149,6 +166,12 @@ function init(){
         };
         if(eventLayer.name=="Total Deaths"){
             this.removeControl(totalDeathsLegend);
+        };
+		if(eventLayer.name=="New Confirmed Cases in the last 4 weeks"){
+            this.removeControl(newConfLegend);
+        };
+		if(eventLayer.name=="Cumulative Confirmed Cases"){
+            this.removeControl(cumConfLegend);
         };
         if(eventLayer.name=="Ebola Medical Centres"){
             this.removeControl(medicalCentresLegend);
