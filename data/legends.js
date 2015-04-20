@@ -25,6 +25,24 @@ totalDeathsLegendContent = function(){
     return html;
 };
 
+newConfLegendContent = function(){
+    var labels = ["0","1-4","5-9","10-19","20+"];
+    var html = "<p>New Confirmed Cases in the last 4 weeks</p>";
+    for(i=0;i<5;i++){
+        html = html +'<p><i style="background-color:' + color[i]+'"></i> '+labels[i]+'</p>';
+    }
+    return html;
+};
+
+cumConfLegendContent = function(){
+    var labels = ["0","1-199","200-499","500-1499","2000+"];
+    var html = "<p>Cumulative Confirmed Cases</p>";
+    for(i=0;i<5;i++){
+        html = html +'<p><i style="background-color:' + color[i]+'"></i> '+labels[i]+'</p>';
+    }
+    return html;
+};
+
 
 medicalCentresLegendContent = function(){
     var html = "<p>Ebola Medical Centres</p>";
