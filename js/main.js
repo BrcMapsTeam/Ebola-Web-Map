@@ -10,6 +10,19 @@ function init(){
             attribution: '&copy; OpenStreetMap contributors'}
     );
 	
+    var newConfLayer = L.geoJson(regions,{
+        style: newConfStyle,
+        onEachFeature: function (feature, layer) {
+            layer.bindPopup("<b>" + feature.properties.NAMEUSE + " ("+feature.properties.PCODEUSE+")</b><br />New Confirmed Cases in the last 4 weeks: "+NewConfirms[feature.properties.PCODEUSE]);
+        }
+    });
+	
+    var cumConfLayer = L.geoJson(regions,{
+        style: cumConfStyle,
+        onEachFeature: function (feature, layer) {
+            layer.bindPopup("<b>" + feature.properties.NAMEUSE + " ("+feature.properties.PCODEUSE+")</b><br />Cumulative Confirmed Cases: "+CumConfirms[feature.properties.PCODEUSE]);
+        }
+    });  
     
     var totalCasesLayer = L.geoJson(regions,{
         style: totalCasesStyle,
@@ -22,20 +35,6 @@ function init(){
         style: totalDeathsStyle,
         onEachFeature: function (feature, layer) {
             layer.bindPopup("<b>" + feature.properties.NAMEUSE + " ("+feature.properties.PCODEUSE+")</b><br />Total Deaths: "+totalDeaths[feature.properties.PCODEUSE]);
-        }
-    });
-	
-    var newConfLayer = L.geoJson(regions,{
-        style: newConfStyle,
-        onEachFeature: function (feature, layer) {
-            layer.bindPopup("<b>" + feature.properties.NAMEUSE + " ("+feature.properties.PCODEUSE+")</b><br />New Confirmed Cases in the last 4 weeks: "+NewConfirms[feature.properties.PCODEUSE]);
-        }
-    });
-	
-    var cumConfLayer = L.geoJson(regions,{
-        style: cumConfStyle,
-        onEachFeature: function (feature, layer) {
-            layer.bindPopup("<b>" + feature.properties.NAMEUSE + " ("+feature.properties.PCODEUSE+")</b><br />Cumulative Confirmed Cases: "+CumConfirms[feature.properties.PCODEUSE]);
         }
     });
 
@@ -67,10 +66,10 @@ function init(){
         'HOT OSM':base_hotosm,
         'OSM':base_osm
     }, {
-        'Total Cases':totalCasesLayer,
-        'Total Deaths':totalDeathsLayer, 
-	'New Confirmed Cases in the last 4 weeks':newConfLayer,
+        'New Confirmed Cases in the last 4 weeks':newConfLayer,
 	'Cumulative Confirmed Cases':cumConfLayer,
+	'Total Cases':totalCasesLayer,
+        'Total Deaths':totalDeathsLayer, 
         'Ebola Medical Centres': medicalCentresLayer,
         'SBTF Medical Centres': SBTFMedicalCentresLayer
     }).addTo(map);   
