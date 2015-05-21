@@ -13,7 +13,7 @@ function init(){
     var newConfLayer = L.geoJson(regions,{
         style: newConfStyle,
         onEachFeature: function (feature, layer) {
-            layer.bindPopup("<b>" + feature.properties.NAMEUSE + " ("+feature.properties.PCODEUSE+")</b><br />New Confirmed Cases in the last 4 weeks: "+NewConfirms[feature.properties.PCODEUSE]);
+            layer.bindPopup("<b>" + feature.properties.NAMEUSE + " ("+feature.properties.PCODEUSE+")</b><br />New Confirmed Cases in the last week: "+NewConfirms[feature.properties.PCODEUSE]);
         }
     });
 	
@@ -66,7 +66,7 @@ function init(){
         'HOT OSM':base_hotosm,
         'OSM':base_osm
     }, {
-        'New Confirmed Cases in the last 4 weeks':newConfLayer,
+        'New Confirmed Cases in the last week':newConfLayer,
 	'Cumulative Confirmed Cases':cumConfLayer,
 	'Total Cases':totalCasesLayer,
         'Total Deaths':totalDeathsLayer, 
@@ -125,7 +125,7 @@ function init(){
         if(eventLayer.name=="Total Deaths"){
             totalDeathsLegend.addTo(this);
         };
-        if(eventLayer.name=="New Confirmed Cases in the last 4 weeks"){
+        if(eventLayer.name=="New Confirmed Cases in the last week"){
             newConfLegend.addTo(this);
         };
 	if(eventLayer.name=="Cumulative Confirmed Cases"){
@@ -146,7 +146,7 @@ function init(){
         if(eventLayer.name=="Total Deaths"){
             this.removeControl(totalDeathsLegend);
         };
-	if(eventLayer.name=="New Confirmed Cases in the last 4 weeks"){
+	if(eventLayer.name=="New Confirmed Cases in the last week"){
             this.removeControl(newConfLegend);
         };
 	if(eventLayer.name=="Cumulative Confirmed Cases"){
