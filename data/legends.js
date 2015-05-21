@@ -18,7 +18,7 @@ totalDeathsLegendContent = function(){
 
 newConfLegendContent = function(){
     var labels = ["0","1-4","5-9","10-19","20+"];
-    var html = "<p>New Confirmed Cases in the last 4 weeks</p>";
+    var html = "<p>New Confirmed Cases in the last week</p>";
     for(i=0;i<5;i++){
         html = html +'<p><i style="background-color:' + color[i]+'"></i> '+labels[i]+'</p>';
     }
