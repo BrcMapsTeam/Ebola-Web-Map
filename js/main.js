@@ -37,15 +37,6 @@ function init(){
             layer.bindPopup("<b>" + feature.properties.NAMEUSE + " ("+feature.properties.PCODEUSE+")</b><br />Total Deaths: "+totalDeaths[feature.properties.PCODEUSE]);
         }
     });
-
-    var medicalCentresLayer = L.geoJson(medicalCentres, {
-        pointToLayer: function (feature, latlng) {
-            return L.circleMarker(latlng,medicalCentresStyle(feature));
-        },
-        onEachFeature: function (feature, layer) {
-            layer.bindPopup("Centre ID: "+feature.properties["ECF_Code"]+"<br />Centre Name: "+feature.properties["ECF_Name"]+"<br />Status: "+feature.properties["Status"]+"<br />Organisation: "+feature.properties["Partner"]);
-        }        
-    });
     
     var SBTFMedicalCentresLayer = L.geoJson(SBTFMedicalCentres, {
         pointToLayer: function (feature, latlng) {
@@ -59,7 +50,7 @@ function init(){
     var map = L.map('map', {
         center: [8,-11],
         zoom: 6,
-        layers: [base_hotosm,newConfLayer,medicalCentresLayer]
+        layers: [base_hotosm,newConfLayer]
     });
 
     L.control.layers({
@@ -70,7 +61,6 @@ function init(){
 	'Cumulative Confirmed Cases':cumConfLayer,
 	'Total Cases':totalCasesLayer,
         'Total Deaths':totalDeathsLayer, 
-        'Ebola Medical Centres': medicalCentresLayer,
         'SBTF Medical Centres': SBTFMedicalCentresLayer
     }).addTo(map);   
     
@@ -78,7 +68,6 @@ function init(){
     var totalCasesLegend = L.control({position: 'bottomleft'});
     var newConfLegend = L.control({position: 'bottomleft'});
     var cumConfLegend = L.control({position: 'bottomleft'});
-    var medicalCentresLegend = L.control({position: 'bottomleft'});
     var SBTFMedicalCentresLegend = L.control({position: 'bottomleft'});
     
 
@@ -106,12 +95,6 @@ function init(){
 	return div;
     };
     
-    medicalCentresLegend.onAdd = function (map) {
-        var div = L.DomUtil.create('div', 'infolegend');
-            div.innerHTML +=medicalCentresLegendContent();
-        return div;
-    };
-    
     SBTFMedicalCentresLegend.onAdd = function (map) {
         var div = L.DomUtil.create('div', 'infolegend');
             div.innerHTML +=SBTFMedicalCentresLegendContent();
@@ -131,9 +114,6 @@ function init(){
 	if(eventLayer.name=="Cumulative Confirmed Cases"){
             cumConfLegend.addTo(this);
         };
-        if(eventLayer.name=="Ebola Medical Centres"){
-            medicalCentresLegend.addTo(this);
-        };
         if(eventLayer.name=="SBTF Medical Centres"){
             SBTFMedicalCentresLegend.addTo(this);
         };           
@@ -152,16 +132,12 @@ function init(){
 	if(eventLayer.name=="Cumulative Confirmed Cases"){
             this.removeControl(cumConfLegend);
         };
-        if(eventLayer.name=="Ebola Medical Centres"){
-            this.removeControl(medicalCentresLegend);
-        };
         if(eventLayer.name=="SBTF Medical Centres"){
             this.removeControl(SBTFMedicalCentresLegend);
         };          
     });
     
     newConfLegend.addTo(map);
-    medicalCentresLegend.addTo(map);
     
     return map;    
 }
