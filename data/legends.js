@@ -34,14 +34,6 @@ cumConfLegendContent = function(){
     return html;
 };
 
-
-medicalCentresLegendContent = function(){
-    var html = "<p>Ebola Medical Centres</p>";
-    html = html +'<p><i style="background-color:#A3C990"></i>Functional</p>';
-    html = html +'<p><i style="background-color:#738ffe"></i>Planned or under construction</p>';
-    return html;
-};
-
 SBTFMedicalCentresLegendContent = function(){
     var html = "<p>Medical Centres</p>";
     html = html +'<p><i style="background-color:#91a7ff"></i>Medical Centre</p>';
