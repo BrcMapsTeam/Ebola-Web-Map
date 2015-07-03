@@ -72,25 +72,6 @@ var cumConfStyle = function(feature){
         }
 };
 
-var medicalCentresStyle = function(feature){
-    if(feature.properties.Status == "Open"){
-        return   {radius: 5,
-                fillColor: "#A3C990",
-                color: "#000",
-                weight: 1,
-                opacity: 1,
-                fillOpacity: 1};
-            }
-    else {
-        return   {radius: 5,
-                fillColor: "#738ffe",
-                color: "#000",
-                weight: 1,
-                opacity: 1,
-                fillOpacity: 1};
-            }
-};
-
 var SBTFMedicalCentresStyle = function(){
     return   {radius: 5,
                 fillColor: "#91a7ff",
